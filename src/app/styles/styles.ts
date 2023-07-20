@@ -202,33 +202,59 @@ export const DivaS = styled.div`
   }
 `;
 
-export const Card = styled.div`
-position: relative;
+interface CardProps {
+  isFlippedAL?: boolean;
+  isFlippedESF?: boolean;
+  isFlippedGH?: boolean;
+  isFlippedHL?: boolean;
+  isFlippedSMKK?: boolean;
+  isFlippedCS?: boolean;
+}
+
+export const Card = styled.div<{ 
+  isFlippedAL?: boolean,
+  isFlippedCS?: boolean,
+  isFlippedESF?: boolean,
+  isFlippedGH?: boolean,
+  isFlippedHL?: boolean,
+  isFlippedSMKK?: boolean,
+}>`
+  position: relative;
   width: 200px;
   height: 300px;
   transform-style: preserve-3d;
   transition: transform 0.5s;
-  transform: ${props =>
-    props.isFlippedAL ||
-    props.isFlippedESF ||
-    props.isFlippedGH ||
-    props.isFlippedHL ||
-    props.isFlippedSMKK ||
-    props.isFlippedCS
-      ? "rotateY(180deg)"
-      : "rotateY(0)"};
+  transform: ${({ isFlippedAL, isFlippedESF, isFlippedGH, isFlippedHL, isFlippedSMKK, isFlippedCS }) =>
+    isFlippedAL || isFlippedESF || isFlippedGH || isFlippedHL || isFlippedSMKK || isFlippedCS
+      ? 'rotateY(180deg)'
+      : 'rotateY(0)'};
   cursor: pointer;
 `;
 
 
-export const Front = styled.div`
+
+export const Front = styled.div<{ 
+  isFlippedAL?: boolean,
+  isFlippedCS?: boolean,
+  isFlippedESF?: boolean,
+  isFlippedGH?: boolean,
+  isFlippedHL?: boolean,
+  isFlippedSMKK?: boolean,
+}>`
 position: absolute;
 width: 100%;
 height: 100%;
 backface-visibility: hidden;
 `;
 
-export const Back = styled.div`
+export const Back = styled.div<{ 
+  isFlippedAL?: boolean,
+  isFlippedCS?: boolean,
+  isFlippedESF?: boolean,
+  isFlippedGH?: boolean,
+  isFlippedHL?: boolean,
+  isFlippedSMKK?: boolean,
+}>`
 position: absolute;
 width: 100%;
 height: 100%;
