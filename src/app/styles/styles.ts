@@ -1,4 +1,3 @@
-import { relative } from 'path';
 import styled from 'styled-components';
 
 //Header-Menu
@@ -202,15 +201,6 @@ export const DivaS = styled.div`
   }
 `;
 
-interface CardProps {
-  isFlippedAL?: boolean;
-  isFlippedESF?: boolean;
-  isFlippedGH?: boolean;
-  isFlippedHL?: boolean;
-  isFlippedSMKK?: boolean;
-  isFlippedCS?: boolean;
-}
-
 export const Card = styled.div<{ 
   isFlippedAL?: boolean,
   isFlippedCS?: boolean,
@@ -282,6 +272,10 @@ export const LogoPagS = styled.div`
   &:hover {
     color: rgba(255, 255, 255, 0.6); 
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 764px) {
+    display: none;
   }
 `;
 
@@ -417,22 +411,55 @@ export const RafaellyLemosS = styled.div`
   gap: 30px;
   text-align: justify;
 
+  .foto {
+    margin-top: 8rem;
+  }
+
   h2 {
     text-align: center;
     font-weight: 200;
     text-transform: uppercase;
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+
+  h3 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 17px;
+    margin-bottom: 30px;
+    line-height: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  p {
+    margin: 10px;
   }
 
   p.tecnologias {
-    margin: 30px 10px 10px 20px;
+    margin: 80px 10px 10px 20px;
     text-transform: uppercase;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  p.tecnologia {
+    display: flex;
+    gap: 30px;
+    margin: 30px 80px 80px 80px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   p.conhecimentos {
     margin: 30px 10px 10px 20px;
     text-transform: uppercase;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  p.conhecimento {
+    text-align: center;
   }
 `;
 
